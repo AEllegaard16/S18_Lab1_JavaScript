@@ -1,11 +1,30 @@
 function genererContenu() {
   // Obtenir l'élément avec l'id démo et lui ajouter des éléments h2 et p
+  let n = document.getElementById("qty").value;
+  let demo = document.getElementById("demo");
+  demo.innerHTML = "";
+  for (let i = 0; i < n; i++) {
+    let titre = document.createElement("h2");
+    titre.innerHTML = document.getElementById("titre").value + " " + i;
+    demo.appendChild(titre);
+    let contenu = document.createElement("p");
+    contenu.innerHTML = document.getElementById("contenu").value + " " + i;
+    demo.appendChild(contenu);
+  }
 }
   
 function changerStyle() {
-  // Obtenir les éléments p qui sont sous le div demo et changer la couleur spécifiée dans l'input
+  let contenus = document.getElementById("demo").getElementsByTagName("p");
+  let couleur = document.getElementById("couleur").value;
+  for (i = 0; i < contenus.length; i++) {
+    contenus[i].style.color = couleur
+  }
 }
   
 function changerClassBoutons() {
-  // Obtenir les éléments boutons et changer leur className pour celui qui est spécifié dans l'input
+  let boutons = document.getElementsByTagName("button");
+  let nomClasse = document.getElementById("btnClass").value;
+  for (i = 0; i < boutons.length; i++) {
+    boutons[i].className = nomClasse;
+  }
 }
